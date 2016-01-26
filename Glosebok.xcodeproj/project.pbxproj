@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F168475E1C574B6B006FD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475D1C574B6B006FD3BF /* AppDelegate.swift */; };
+		F16847601C574B6B006FD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* ViewController.swift */; };
+		F16847631C574B6B006FD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847611C574B6B006FD3BF /* Main.storyboard */; };
+		F16847651C574B6B006FD3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16847641C574B6B006FD3BF /* Assets.xcassets */; };
+		F16847681C574B6B006FD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */; };
+		F16847731C574B6B006FD3BF /* GlosebokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16847721C574B6B006FD3BF /* GlosebokTests.swift */; };
+		F168477E1C574B6B006FD3BF /* GlosebokUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F168476F1C574B6B006FD3BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F16847521C574B6B006FD3BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F16847591C574B6B006FD3BF;
+			remoteInfo = Glosebok;
+		};
+		F168477A1C574B6B006FD3BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F16847521C574B6B006FD3BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F16847591C574B6B006FD3BF;
+			remoteInfo = Glosebok;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F168475A1C574B6B006FD3BF /* Glosebok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glosebok.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F168475D1C574B6B006FD3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F168475F1C574B6B006FD3BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F16847621C574B6B006FD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F16847641C574B6B006FD3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F16847671C574B6B006FD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F16847691C574B6B006FD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F168476E1C574B6B006FD3BF /* GlosebokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlosebokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16847721C574B6B006FD3BF /* GlosebokTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlosebokTests.swift; sourceTree = "<group>"; };
+		F16847741C574B6B006FD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlosebokUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlosebokUITests.swift; sourceTree = "<group>"; };
+		F168477F1C574B6B006FD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F16847571C574B6B006FD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F168476B1C574B6B006FD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16847761C574B6B006FD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F16847511C574B6B006FD3BF = {
+			isa = PBXGroup;
+			children = (
+				F168475C1C574B6B006FD3BF /* Glosebok */,
+				F16847711C574B6B006FD3BF /* GlosebokTests */,
+				F168477C1C574B6B006FD3BF /* GlosebokUITests */,
+				F168475B1C574B6B006FD3BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F168475B1C574B6B006FD3BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F168475A1C574B6B006FD3BF /* Glosebok.app */,
+				F168476E1C574B6B006FD3BF /* GlosebokTests.xctest */,
+				F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F168475C1C574B6B006FD3BF /* Glosebok */ = {
+			isa = PBXGroup;
+			children = (
+				F168475D1C574B6B006FD3BF /* AppDelegate.swift */,
+				F168475F1C574B6B006FD3BF /* ViewController.swift */,
+				F16847611C574B6B006FD3BF /* Main.storyboard */,
+				F16847641C574B6B006FD3BF /* Assets.xcassets */,
+				F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */,
+				F16847691C574B6B006FD3BF /* Info.plist */,
+			);
+			path = Glosebok;
+			sourceTree = "<group>";
+		};
+		F16847711C574B6B006FD3BF /* GlosebokTests */ = {
+			isa = PBXGroup;
+			children = (
+				F16847721C574B6B006FD3BF /* GlosebokTests.swift */,
+				F16847741C574B6B006FD3BF /* Info.plist */,
+			);
+			path = GlosebokTests;
+			sourceTree = "<group>";
+		};
+		F168477C1C574B6B006FD3BF /* GlosebokUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */,
+				F168477F1C574B6B006FD3BF /* Info.plist */,
+			);
+			path = GlosebokUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F16847591C574B6B006FD3BF /* Glosebok */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16847821C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "Glosebok" */;
+			buildPhases = (
+				F16847561C574B6B006FD3BF /* Sources */,
+				F16847571C574B6B006FD3BF /* Frameworks */,
+				F16847581C574B6B006FD3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glosebok;
+			productName = Glosebok;
+			productReference = F168475A1C574B6B006FD3BF /* Glosebok.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F168476D1C574B6B006FD3BF /* GlosebokTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16847851C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokTests" */;
+			buildPhases = (
+				F168476A1C574B6B006FD3BF /* Sources */,
+				F168476B1C574B6B006FD3BF /* Frameworks */,
+				F168476C1C574B6B006FD3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F16847701C574B6B006FD3BF /* PBXTargetDependency */,
+			);
+			name = GlosebokTests;
+			productName = GlosebokTests;
+			productReference = F168476E1C574B6B006FD3BF /* GlosebokTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F16847781C574B6B006FD3BF /* GlosebokUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16847881C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokUITests" */;
+			buildPhases = (
+				F16847751C574B6B006FD3BF /* Sources */,
+				F16847761C574B6B006FD3BF /* Frameworks */,
+				F16847771C574B6B006FD3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F168477B1C574B6B006FD3BF /* PBXTargetDependency */,
+			);
+			name = GlosebokUITests;
+			productName = GlosebokUITests;
+			productReference = F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F16847521C574B6B006FD3BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Simen E. Sørensen";
+				TargetAttributes = {
+					F16847591C574B6B006FD3BF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					F168476D1C574B6B006FD3BF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = F16847591C574B6B006FD3BF;
+					};
+					F16847781C574B6B006FD3BF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = F16847591C574B6B006FD3BF;
+					};
+				};
+			};
+			buildConfigurationList = F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "Glosebok" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F16847511C574B6B006FD3BF;
+			productRefGroup = F168475B1C574B6B006FD3BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F16847591C574B6B006FD3BF /* Glosebok */,
+				F168476D1C574B6B006FD3BF /* GlosebokTests */,
+				F16847781C574B6B006FD3BF /* GlosebokUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F16847581C574B6B006FD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16847681C574B6B006FD3BF /* LaunchScreen.storyboard in Resources */,
+				F16847651C574B6B006FD3BF /* Assets.xcassets in Resources */,
+				F16847631C574B6B006FD3BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F168476C1C574B6B006FD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16847771C574B6B006FD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F16847561C574B6B006FD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16847601C574B6B006FD3BF /* ViewController.swift in Sources */,
+				F168475E1C574B6B006FD3BF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F168476A1C574B6B006FD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16847731C574B6B006FD3BF /* GlosebokTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16847751C574B6B006FD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F168477E1C574B6B006FD3BF /* GlosebokUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F16847701C574B6B006FD3BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F16847591C574B6B006FD3BF /* Glosebok */;
+			targetProxy = F168476F1C574B6B006FD3BF /* PBXContainerItemProxy */;
+		};
+		F168477B1C574B6B006FD3BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F16847591C574B6B006FD3BF /* Glosebok */;
+			targetProxy = F168477A1C574B6B006FD3BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F16847611C574B6B006FD3BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F16847621C574B6B006FD3BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F16847671C574B6B006FD3BF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F16847801C574B6B006FD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F16847811C574B6B006FD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F16847831C574B6B006FD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glosebok/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Glosebok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F16847841C574B6B006FD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glosebok/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Glosebok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F16847861C574B6B006FD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GlosebokTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GlosebokTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glosebok.app/Glosebok";
+			};
+			name = Debug;
+		};
+		F16847871C574B6B006FD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GlosebokTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GlosebokTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glosebok.app/Glosebok";
+			};
+			name = Release;
+		};
+		F16847891C574B6B006FD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GlosebokUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GlosebokUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Glosebok;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F168478A1C574B6B006FD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GlosebokUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GlosebokUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Glosebok;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "Glosebok" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16847801C574B6B006FD3BF /* Debug */,
+				F16847811C574B6B006FD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F16847821C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "Glosebok" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16847831C574B6B006FD3BF /* Debug */,
+				F16847841C574B6B006FD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F16847851C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16847861C574B6B006FD3BF /* Debug */,
+				F16847871C574B6B006FD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F16847881C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16847891C574B6B006FD3BF /* Debug */,
+				F168478A1C574B6B006FD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F16847521C574B6B006FD3BF /* Project object */;
+}
