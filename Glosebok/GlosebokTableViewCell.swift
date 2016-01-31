@@ -10,6 +10,13 @@ import UIKit
 
 class GlosebokTableViewCell: UITableViewCell {
 
+    //MARK: Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var keywordsLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var completionImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
