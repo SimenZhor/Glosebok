@@ -14,6 +14,11 @@
 		F16847681C574B6B006FD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */; };
 		F16847731C574B6B006FD3BF /* GlosebokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16847721C574B6B006FD3BF /* GlosebokTests.swift */; };
 		F168477E1C574B6B006FD3BF /* GlosebokUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */; };
+		F168478D1C57C6A2006FD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* ViewController.swift */; };
+		F168478E1C57C6A2006FD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475D1C574B6B006FD3BF /* AppDelegate.swift */; };
+		F16847911C57C6A2006FD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */; };
+		F16847921C57C6A2006FD3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16847641C574B6B006FD3BF /* Assets.xcassets */; };
+		F16847931C57C6A2006FD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847611C574B6B006FD3BF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,8 @@
 		F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlosebokUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlosebokUITests.swift; sourceTree = "<group>"; };
 		F168477F1C574B6B006FD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16847971C57C6A2006FD3BF /* Glosebok copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glosebok copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16847981C57C6A3006FD3BF /* Glosebok copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Glosebok copy-Info.plist"; path = "/Users/Simen/Desktop/X Code Projects/Glosebok/Glosebok copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F168478F1C57C6A2006FD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +95,7 @@
 				F16847711C574B6B006FD3BF /* GlosebokTests */,
 				F168477C1C574B6B006FD3BF /* GlosebokUITests */,
 				F168475B1C574B6B006FD3BF /* Products */,
+				F16847981C57C6A3006FD3BF /* Glosebok copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +105,7 @@
 				F168475A1C574B6B006FD3BF /* Glosebok.app */,
 				F168476E1C574B6B006FD3BF /* GlosebokTests.xctest */,
 				F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */,
+				F16847971C57C6A2006FD3BF /* Glosebok copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +197,23 @@
 			productReference = F16847791C574B6B006FD3BF /* GlosebokUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F168478B1C57C6A2006FD3BF /* Glosebok copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16847941C57C6A2006FD3BF /* Build configuration list for PBXNativeTarget "Glosebok copy" */;
+			buildPhases = (
+				F168478C1C57C6A2006FD3BF /* Sources */,
+				F168478F1C57C6A2006FD3BF /* Frameworks */,
+				F16847901C57C6A2006FD3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Glosebok copy";
+			productName = Glosebok;
+			productReference = F16847971C57C6A2006FD3BF /* Glosebok copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,6 +253,7 @@
 				F16847591C574B6B006FD3BF /* Glosebok */,
 				F168476D1C574B6B006FD3BF /* GlosebokTests */,
 				F16847781C574B6B006FD3BF /* GlosebokUITests */,
+				F168478B1C57C6A2006FD3BF /* Glosebok copy */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +283,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F16847901C57C6A2006FD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16847911C57C6A2006FD3BF /* LaunchScreen.storyboard in Resources */,
+				F16847921C57C6A2006FD3BF /* Assets.xcassets in Resources */,
+				F16847931C57C6A2006FD3BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -274,6 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F168477E1C574B6B006FD3BF /* GlosebokUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F168478C1C57C6A2006FD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F168478D1C57C6A2006FD3BF /* ViewController.swift in Sources */,
+				F168478E1C57C6A2006FD3BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +518,28 @@
 			};
 			name = Release;
 		};
+		F16847951C57C6A2006FD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Glosebok copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Glosebok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F16847961C57C6A2006FD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Glosebok copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Glosebok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -484,6 +559,7 @@
 				F16847841C574B6B006FD3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F16847851C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +568,7 @@
 				F16847871C574B6B006FD3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F16847881C574B6B006FD3BF /* Build configuration list for PBXNativeTarget "GlosebokUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +577,16 @@
 				F168478A1C574B6B006FD3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F16847941C57C6A2006FD3BF /* Build configuration list for PBXNativeTarget "Glosebok copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F16847951C57C6A2006FD3BF /* Debug */,
+				F16847961C57C6A2006FD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
