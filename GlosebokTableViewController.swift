@@ -13,7 +13,7 @@ class GlosebokTableViewController: UITableViewController{
     
     //MARK Properties
     var library = [Glosebok]()
-    
+    public static var bookCounter: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class GlosebokTableViewController: UITableViewController{
     }
     
     func getLibrary() -> [Glosebok]{
-        return self.library
+        return library
     }
 
     override func didReceiveMemoryWarning() {

@@ -45,8 +45,8 @@
                                             <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inneholder blandt annet:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wda-Eh-Hbi">
-                                            <rect key="frame" x="89" y="41" width="503" height="25"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <rect key="frame" x="89" y="46" width="503" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,6 +57,7 @@
                                     <outlet property="keywordsLabel" destination="zr3-Lk-hBc" id="q8Z-cs-jYZ"/>
                                     <outlet property="languageLabel" destination="uYn-OF-yVg" id="PFa-Ae-20Q"/>
                                     <outlet property="titleLabel" destination="mhV-7J-1eD" id="QwL-Xs-T1D"/>
+                                    <segue destination="pum-4q-pMW" kind="showDetail" id="nR0-lO-RHx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,6 +79,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTI-rH-4Yh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="249"/>
+        </scene>
+        <!--Start Practicing View Controller-->
+        <scene sceneID="TLR-q1-pT6">
+            <objects>
+                <viewController id="pum-4q-pMW" userLabel="Start Practicing View Controller" customClass="SceneOnePracticeViewController" customModule="Glosebok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ME-kP-8KX"/>
+                        <viewControllerLayoutGuide type="bottom" id="naE-Es-cL7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F29-TK-71P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ew-OCB">
+                                <rect key="frame" x="20" y="437" width="560" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Oversett"/>
+                                <connections>
+                                    <segue destination="se1-Qe-Wmo" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="iGc-UE-rDj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Oversatt ord" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-sl-T8H">
+                                <rect key="frame" x="20" y="124" width="560" height="192"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AUK-sl-T8H" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="07j-2y-yHs"/>
+                            <constraint firstItem="HM4-ew-OCB" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="8G8-8o-hKj"/>
+                            <constraint firstItem="naE-Es-cL7" firstAttribute="top" secondItem="HM4-ew-OCB" secondAttribute="bottom" constant="90" id="Sx7-Ca-ahO"/>
+                            <constraint firstItem="AUK-sl-T8H" firstAttribute="trailing" secondItem="F29-TK-71P" secondAttribute="trailingMargin" id="dxD-NF-qpb"/>
+                            <constraint firstItem="AUK-sl-T8H" firstAttribute="top" secondItem="2ME-kP-8KX" secondAttribute="bottom" constant="60" id="jsk-y9-cY2"/>
+                            <constraint firstItem="AUK-sl-T8H" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" id="xXu-1v-jQb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPY-6M-FZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="1014"/>
+        </scene>
+        <!--Show Answer View Controller-->
+        <scene sceneID="MGq-oJ-EhD">
+            <objects>
+                <viewController id="se1-Qe-Wmo" userLabel="Show Answer View Controller" customClass="SceneTwoPracticeViewController" customModule="Glosebok" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S16-vj-jQl"/>
+                        <viewControllerLayoutGuide type="bottom" id="vRs-Ce-3iI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="brc-0P-g9a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Translated word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-GY-MIL">
+                                <rect key="frame" x="20" y="124" width="560" height="192"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hvor godt kunne du dette ordet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afW-Ew-iIx">
+                                <rect key="frame" x="20" y="408" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="73" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-oQ-lw8" customClass="RatingControl" customModule="Glosebok" customModuleProvider="target">
+                                <rect key="frame" x="144" y="437" width="312" height="73"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="afW-Ew-iIx" firstAttribute="trailing" secondItem="brc-0P-g9a" secondAttribute="trailingMargin" id="IIL-rm-flM"/>
+                            <constraint firstItem="4IR-GY-MIL" firstAttribute="centerX" secondItem="brc-0P-g9a" secondAttribute="centerX" id="RmH-AA-Yxp"/>
+                            <constraint firstItem="3mL-oQ-lw8" firstAttribute="centerX" secondItem="brc-0P-g9a" secondAttribute="centerX" id="Yxj-eT-gcV"/>
+                            <constraint firstItem="3mL-oQ-lw8" firstAttribute="top" secondItem="afW-Ew-iIx" secondAttribute="bottom" constant="5" id="c5r-D0-ZPB"/>
+                            <constraint firstItem="4IR-GY-MIL" firstAttribute="leading" secondItem="brc-0P-g9a" secondAttribute="leadingMargin" id="d4C-ek-zx5"/>
+                            <constraint firstItem="4IR-GY-MIL" firstAttribute="top" secondItem="S16-vj-jQl" secondAttribute="bottom" constant="60" id="dXn-jb-VTi"/>
+                            <constraint firstItem="afW-Ew-iIx" firstAttribute="leading" secondItem="brc-0P-g9a" secondAttribute="leadingMargin" id="dgb-y7-c83"/>
+                            <constraint firstItem="4IR-GY-MIL" firstAttribute="trailing" secondItem="brc-0P-g9a" secondAttribute="trailingMargin" id="fQE-2I-u1f"/>
+                            <constraint firstItem="afW-Ew-iIx" firstAttribute="centerX" secondItem="brc-0P-g9a" secondAttribute="centerX" id="fyW-eZ-eGE"/>
+                            <constraint firstItem="vRs-Ce-3iI" firstAttribute="top" secondItem="3mL-oQ-lw8" secondAttribute="bottom" constant="90" id="pcH-nX-tke"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ratingControl" destination="3mL-oQ-lw8" id="62S-hb-RNt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjJ-yN-wjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="1014"/>
         </scene>
         <!--New Glossary View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -139,7 +233,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ny Glosebok" id="ZYN-Er-KFp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eDl-gw-tsQ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eDl-gw-tsQ">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="mwK-Vh-szc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Neste" id="1BK-0r-Exs">
                             <connections>
                                 <segue destination="FSg-Cy-Wmg" kind="show" identifier="AddWords" id="Hbf-Eh-sDI"/>
@@ -181,12 +279,12 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-iD-mCS">
                                             <rect key="frame" x="312" y="7" width="280" height="30"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wgs-vh-9BC">
                                             <rect key="frame" x="8" y="7" width="280" height="30"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -213,7 +311,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Legg til gloser" id="cti-yw-z2Q">
                         <leftBarButtonItems>
-                            <barButtonItem systemItem="cancel" id="7Fc-AE-67m"/>
+                            <barButtonItem systemItem="cancel" id="7Fc-AE-67m">
+                                <connections>
+                                    <action selector="cancel:" destination="FSg-Cy-Wmg" id="7Gc-AU-Uvf"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="edit" id="64W-Ny-d11"/>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="J5P-wN-QQp">

@@ -20,7 +20,8 @@ class Glosebok{
     var wordsLang1: [String]
     var wordsLang2: [String]
     var glossary: [[String]] //glossary = [wordsLang1,wordsLang2]
-    
+    var overallRating: Double = 0.0
+    var ratingForEachWord: [Int] = [Int]()
 
     
     //MARK: Initialization
@@ -30,7 +31,9 @@ class Glosebok{
         self.lang2 = lang2
         
         if title == ""{
-         self.title = "Ny Glosebok " //+ (GlosebokTableViewController.getLibrary().count + 1) //Library = array med alle glosebøker
+         self.title = ("Min Glosebok " + String(GlosebokTableViewController.bookCounter))
+            debugPrint("Adding one")
+            GlosebokTableViewController.bookCounter+=1
         }
         
         wordsLang1 = []

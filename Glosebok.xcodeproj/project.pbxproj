@@ -22,6 +22,10 @@
 		F17327631C5F497C00099F60 /* AddWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */; };
 		F17327651C5F4A1D00099F60 /* AddWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */; };
 		F187BC571C639D86000E0B2A /* AddOneWordToGlossaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */; };
+		F1C6A1C91C654779006D8D16 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6A1C81C654779006D8D16 /* RatingControl.swift */; };
+		F1C6A1CC1C65508C006D8D16 /* RatingControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6A1CB1C65508C006D8D16 /* RatingControlDelegate.swift */; };
+		F1C6A1CE1C655218006D8D16 /* SceneOnePracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6A1CD1C655218006D8D16 /* SceneOnePracticeViewController.swift */; };
+		F1C6A1D01C65522F006D8D16 /* SceneTwoPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6A1CF1C65522F006D8D16 /* SceneTwoPracticeViewController.swift */; };
 		F1E7A7831C5E357A00665FF6 /* GlosebokTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7821C5E357A00665FF6 /* GlosebokTableViewCell.swift */; };
 		F1E7A7851C5E41B400665FF6 /* Glosebok.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7841C5E41B400665FF6 /* Glosebok.swift */; };
 		F1E7A7891C5E4E1200665FF6 /* GlosebokTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7881C5E4E1200665FF6 /* GlosebokTableViewController.swift */; };
@@ -63,6 +67,10 @@
 		F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordsTableViewController.swift; sourceTree = "<group>"; };
 		F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordTableViewCell.swift; sourceTree = "<group>"; };
 		F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneWordToGlossaryCell.swift; sourceTree = "<group>"; };
+		F1C6A1C81C654779006D8D16 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		F1C6A1CB1C65508C006D8D16 /* RatingControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControlDelegate.swift; sourceTree = "<group>"; };
+		F1C6A1CD1C655218006D8D16 /* SceneOnePracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneOnePracticeViewController.swift; sourceTree = "<group>"; };
+		F1C6A1CF1C65522F006D8D16 /* SceneTwoPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneTwoPracticeViewController.swift; sourceTree = "<group>"; };
 		F1E7A7821C5E357A00665FF6 /* GlosebokTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlosebokTableViewCell.swift; sourceTree = "<group>"; };
 		F1E7A7841C5E41B400665FF6 /* Glosebok.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glosebok.swift; sourceTree = "<group>"; };
 		F1E7A7881C5E4E1200665FF6 /* GlosebokTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlosebokTableViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +140,7 @@
 				F17327681C5F4A8400099F60 /* 2 Ny Glosebok scene */,
 				F17327661C5F4A5300099F60 /* 3 Add Word scene */,
 				F16847641C574B6B006FD3BF /* Assets.xcassets */,
+				F1C6A1CA1C65492B006D8D16 /* 4 Practice Scenes */,
 				F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */,
 				F16847691C574B6B006FD3BF /* Info.plist */,
 			);
@@ -181,6 +190,17 @@
 				F168475F1C574B6B006FD3BF /* NewGlossaryViewController.swift */,
 			);
 			name = "2 Ny Glosebok scene";
+			sourceTree = "<group>";
+		};
+		F1C6A1CA1C65492B006D8D16 /* 4 Practice Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F1C6A1CD1C655218006D8D16 /* SceneOnePracticeViewController.swift */,
+				F1C6A1CF1C65522F006D8D16 /* SceneTwoPracticeViewController.swift */,
+				F1C6A1C81C654779006D8D16 /* RatingControl.swift */,
+				F1C6A1CB1C65508C006D8D16 /* RatingControlDelegate.swift */,
+			);
+			name = "4 Practice Scenes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F187BC571C639D86000E0B2A /* AddOneWordToGlossaryCell.swift in Sources */,
+				F1C6A1D01C65522F006D8D16 /* SceneTwoPracticeViewController.swift in Sources */,
+				F1C6A1CC1C65508C006D8D16 /* RatingControlDelegate.swift in Sources */,
 				F17327651C5F4A1D00099F60 /* AddWordTableViewCell.swift in Sources */,
+				F1C6A1CE1C655218006D8D16 /* SceneOnePracticeViewController.swift in Sources */,
 				F1E7A7831C5E357A00665FF6 /* GlosebokTableViewCell.swift in Sources */,
 				F17327631C5F497C00099F60 /* AddWordsTableViewController.swift in Sources */,
+				F1C6A1C91C654779006D8D16 /* RatingControl.swift in Sources */,
 				F1E7A7891C5E4E1200665FF6 /* GlosebokTableViewController.swift in Sources */,
 				F16847601C574B6B006FD3BF /* NewGlossaryViewController.swift in Sources */,
 				F168475E1C574B6B006FD3BF /* AppDelegate.swift in Sources */,

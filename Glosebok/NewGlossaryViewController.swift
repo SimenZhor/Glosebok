@@ -59,8 +59,10 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
     }
     
 
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
-    //MARK: Actions
 
     
     
@@ -72,7 +74,11 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
     }
     func textFieldDidEndEditing(textField: UITextField) {
         titleLabel.text = textField.text
-        
+        nextButton.enabled = true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        nextButton.enabled = false
     }
     
     //MARK: UIPickerViewDelegate

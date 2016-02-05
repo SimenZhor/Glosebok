@@ -19,7 +19,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     
     var lang1Words: [String] = [String]()
     var lang2Words: [String] = [String]()
-    var glosebok: Glosebok = Glosebok(title: "", lang1: "", lang2: "")
+    var glosebok: Glosebok = Glosebok(title: " ", lang1: "", lang2: "")
     var lang1: String = ""
     var lang2: String = ""
     
@@ -157,6 +157,8 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         }
     }
     
+       
+    
     /*
     @IBAction func unwindToAddWords(sender: UIStoryboardSegue){
         
@@ -253,7 +255,13 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
 
 
-
+    func disableDoneButton(bol: Bool) {
+        if bol {
+            doneButton.enabled = false
+        }else{
+            doneButton.enabled = true
+        }
+    }
 
 
 

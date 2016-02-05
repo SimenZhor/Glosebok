@@ -68,6 +68,8 @@ class AddWordTableViewCell: UITableViewCell, UITextFieldDelegate, AddOneWordToGl
     
     func textFieldDidEndEditing(textField: UITextField) {
         debugPrint("text field did end editing")
+        delegate?.disableDoneButton(false)
+        
         if textField.text != ""{
             setTextFieldToBoldAppearance(textField)
         }
@@ -75,16 +77,20 @@ class AddWordTableViewCell: UITableViewCell, UITextFieldDelegate, AddOneWordToGl
             //initiates delegate task
             if textField === lang1TextField{
                 debugPrint("first language was edited")
+                lang2TextField.becomeFirstResponder()
                 didEditFirstTextField()
+                
             } else if textField === lang2TextField{
                 debugPrint("second language was edited")
                 didEditSecondTextField()
+                textField.resignFirstResponder()
             }
         }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         textBeforeEdit = textField.text!
+        delegate?.disableDoneButton(true)
         
         setTextFieldToNormalAppearance(textField)
     }

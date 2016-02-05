@@ -17,10 +17,13 @@ import UIKit
 
 protocol AddOneWordToGlossaryCellDelegate: class{
     
+    func textFieldEdited(sender: AddWordTableViewCell, word: String, language: Int)
     func wordAdded(language: Int, word: String)
     func wordEdited(language: Int, index: Int, word: String)
 
+    
     func expandTableViewWithOneCell(indexPath: NSIndexPath, language: Int, word: String)
-    func textFieldEdited(sender: AddWordTableViewCell, word: String, language: Int)
+
+    func disableDoneButton(bol: Bool)
     
 }
