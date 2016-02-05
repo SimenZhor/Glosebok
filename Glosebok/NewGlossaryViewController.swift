@@ -16,10 +16,13 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
     @IBOutlet weak var languagePicker: UIPickerView!
     @IBOutlet weak var lang1Label: UILabel!
     @IBOutlet weak var lang2Label: UILabel!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     //MARK: Variables
     var languageList: [String] = [String]()
     var pickerData: [[String]] = [[String]]()
+    var glosebok: Glosebok?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,25 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
         pickerData = [languageList,languageList]
 
     }
+    
+    //MARK: Navigation
+    
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if nextButton === sender {
+            let DestViewController: AddWordsTableViewController = segue.destinationViewController as! AddWordsTableViewController
+            
+            let title = titleTextField.text ?? ""
+            let lang1 = lang1Label.text
+            let lang2 = lang2Label.text
+            
+            glosebok = Glosebok(title: title, lang1: lang1!, lang2: lang2!)
+            DestViewController.glosebok = glosebok!
+        }
+    }
+    
+
 
     //MARK: Actions
 

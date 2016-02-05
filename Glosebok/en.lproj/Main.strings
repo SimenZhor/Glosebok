@@ -1,0 +1,9 @@
+
+/* Class = "UINavigationItem"; title = "Ny glosebok"; ObjectID = "ehi-Yv-OZj"; */
+"ehi-Yv-OZj.title" = "Ny glosebok";
+
+/* Class = "UITextField"; placeholder = "Ny Glosebok"; ObjectID = "oed-qF-5t3"; */
+"oed-qF-5t3.placeholder" = "Ny Glosebok";
+
+/* Class = "UILabel"; text = "Tittel"; ObjectID = "vtW-oq-iZx"; */
+"vtW-oq-iZx.text" = "Tittel";

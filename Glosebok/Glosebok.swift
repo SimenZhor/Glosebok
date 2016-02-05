@@ -21,6 +21,7 @@ class Glosebok{
     var wordsLang2: [String]
     var glossary: [[String]] //glossary = [wordsLang1,wordsLang2]
     
+
     
     //MARK: Initialization
     init(title: String?, lang1: String, lang2: String){

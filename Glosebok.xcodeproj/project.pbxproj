@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		F168475E1C574B6B006FD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475D1C574B6B006FD3BF /* AppDelegate.swift */; };
-		F16847601C574B6B006FD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* ViewController.swift */; };
+		F16847601C574B6B006FD3BF /* NewGlossaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* NewGlossaryViewController.swift */; };
 		F16847631C574B6B006FD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847611C574B6B006FD3BF /* Main.storyboard */; };
 		F16847651C574B6B006FD3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16847641C574B6B006FD3BF /* Assets.xcassets */; };
 		F16847681C574B6B006FD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */; };
 		F16847731C574B6B006FD3BF /* GlosebokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16847721C574B6B006FD3BF /* GlosebokTests.swift */; };
 		F168477E1C574B6B006FD3BF /* GlosebokUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168477D1C574B6B006FD3BF /* GlosebokUITests.swift */; };
-		F168478D1C57C6A2006FD3BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* ViewController.swift */; };
+		F168478D1C57C6A2006FD3BF /* NewGlossaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475F1C574B6B006FD3BF /* NewGlossaryViewController.swift */; };
 		F168478E1C57C6A2006FD3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168475D1C574B6B006FD3BF /* AppDelegate.swift */; };
 		F16847911C57C6A2006FD3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */; };
 		F16847921C57C6A2006FD3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16847641C574B6B006FD3BF /* Assets.xcassets */; };
 		F16847931C57C6A2006FD3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16847611C574B6B006FD3BF /* Main.storyboard */; };
+		F17327631C5F497C00099F60 /* AddWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */; };
+		F17327651C5F4A1D00099F60 /* AddWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */; };
+		F187BC571C639D86000E0B2A /* AddOneWordToGlossaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */; };
+		F1E7A7831C5E357A00665FF6 /* GlosebokTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7821C5E357A00665FF6 /* GlosebokTableViewCell.swift */; };
+		F1E7A7851C5E41B400665FF6 /* Glosebok.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7841C5E41B400665FF6 /* Glosebok.swift */; };
+		F1E7A7891C5E4E1200665FF6 /* GlosebokTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E7A7881C5E4E1200665FF6 /* GlosebokTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +47,7 @@
 /* Begin PBXFileReference section */
 		F168475A1C574B6B006FD3BF /* Glosebok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glosebok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F168475D1C574B6B006FD3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F168475F1C574B6B006FD3BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F168475F1C574B6B006FD3BF /* NewGlossaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGlossaryViewController.swift; sourceTree = "<group>"; };
 		F16847621C574B6B006FD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F16847641C574B6B006FD3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F16847671C574B6B006FD3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +60,12 @@
 		F168477F1C574B6B006FD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F16847971C57C6A2006FD3BF /* Glosebok copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glosebok copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16847981C57C6A3006FD3BF /* Glosebok copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Glosebok copy-Info.plist"; path = "/Users/Simen/Desktop/X Code Projects/Glosebok/Glosebok copy-Info.plist"; sourceTree = "<absolute>"; };
+		F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordsTableViewController.swift; sourceTree = "<group>"; };
+		F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordTableViewCell.swift; sourceTree = "<group>"; };
+		F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneWordToGlossaryCell.swift; sourceTree = "<group>"; };
+		F1E7A7821C5E357A00665FF6 /* GlosebokTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlosebokTableViewCell.swift; sourceTree = "<group>"; };
+		F1E7A7841C5E41B400665FF6 /* Glosebok.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glosebok.swift; sourceTree = "<group>"; };
+		F1E7A7881C5E4E1200665FF6 /* GlosebokTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlosebokTableViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				F168475D1C574B6B006FD3BF /* AppDelegate.swift */,
-				F168475F1C574B6B006FD3BF /* ViewController.swift */,
+				F1E7A7841C5E41B400665FF6 /* Glosebok.swift */,
 				F16847611C574B6B006FD3BF /* Main.storyboard */,
+				F17327671C5F4A6200099F60 /* 1 Mine glosebøker scene */,
+				F17327681C5F4A8400099F60 /* 2 Ny Glosebok scene */,
+				F17327661C5F4A5300099F60 /* 3 Add Word scene */,
 				F16847641C574B6B006FD3BF /* Assets.xcassets */,
 				F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */,
 				F16847691C574B6B006FD3BF /* Info.plist */,
@@ -139,6 +154,33 @@
 				F168477F1C574B6B006FD3BF /* Info.plist */,
 			);
 			path = GlosebokUITests;
+			sourceTree = "<group>";
+		};
+		F17327661C5F4A5300099F60 /* 3 Add Word scene */ = {
+			isa = PBXGroup;
+			children = (
+				F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */,
+				F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */,
+				F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */,
+			);
+			name = "3 Add Word scene";
+			sourceTree = "<group>";
+		};
+		F17327671C5F4A6200099F60 /* 1 Mine glosebøker scene */ = {
+			isa = PBXGroup;
+			children = (
+				F1E7A7881C5E4E1200665FF6 /* GlosebokTableViewController.swift */,
+				F1E7A7821C5E357A00665FF6 /* GlosebokTableViewCell.swift */,
+			);
+			name = "1 Mine glosebøker scene";
+			sourceTree = "<group>";
+		};
+		F17327681C5F4A8400099F60 /* 2 Ny Glosebok scene */ = {
+			isa = PBXGroup;
+			children = (
+				F168475F1C574B6B006FD3BF /* NewGlossaryViewController.swift */,
+			);
+			name = "2 Ny Glosebok scene";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "Glosebok" */;
+			buildConfigurationList = F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "glosebok" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -300,8 +342,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16847601C574B6B006FD3BF /* ViewController.swift in Sources */,
+				F187BC571C639D86000E0B2A /* AddOneWordToGlossaryCell.swift in Sources */,
+				F17327651C5F4A1D00099F60 /* AddWordTableViewCell.swift in Sources */,
+				F1E7A7831C5E357A00665FF6 /* GlosebokTableViewCell.swift in Sources */,
+				F17327631C5F497C00099F60 /* AddWordsTableViewController.swift in Sources */,
+				F1E7A7891C5E4E1200665FF6 /* GlosebokTableViewController.swift in Sources */,
+				F16847601C574B6B006FD3BF /* NewGlossaryViewController.swift in Sources */,
 				F168475E1C574B6B006FD3BF /* AppDelegate.swift in Sources */,
+				F1E7A7851C5E41B400665FF6 /* Glosebok.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F168478D1C57C6A2006FD3BF /* ViewController.swift in Sources */,
+				F168478D1C57C6A2006FD3BF /* NewGlossaryViewController.swift in Sources */,
 				F168478E1C57C6A2006FD3BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,7 +591,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "Glosebok" */ = {
+		F16847551C574B6B006FD3BF /* Build configuration list for PBXProject "glosebok" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F16847801C574B6B006FD3BF /* Debug */,

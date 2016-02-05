@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Glosebok copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Glosebok.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>F16847781C574B6B006FD3BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F168478B1C57C6A2006FD3BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
