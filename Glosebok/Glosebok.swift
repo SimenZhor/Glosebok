@@ -20,15 +20,22 @@ class Glosebok{
     var wordsLang1: [String]
     var wordsLang2: [String]
     var glossary: [[String]] //glossary = [wordsLang1,wordsLang2]
+    var translatedWords: [[String]]
     var overallRating: Double = 0.0
     var ratingForEachWord: [Int] = [Int]()
-
+    var smileys = [UIImage]()
     
     //MARK: Initialization
     init(title: String?, lang1: String, lang2: String){
         self.title = title!
         self.lang1 = lang1
         self.lang2 = lang2
+        
+        smileys.append(UIImage(named: "utterShit")!)
+        smileys.append(UIImage(named: "prettyBad")!)
+        smileys.append(UIImage(named: "prettyGood")!)
+        smileys.append(UIImage(named: "complete")!)
+        
         
         if title == ""{
          self.title = ("Min Glosebok " + String(GlosebokTableViewController.bookCounter))
@@ -39,20 +46,14 @@ class Glosebok{
         wordsLang1 = []
         wordsLang2 = []
         glossary = [wordsLang1,wordsLang2]
-        currentStatus = UIImage(named:"utterShit")!
+        translatedWords = [[],[]]
+        currentStatus = smileys[0]
         
     }
     
-    //Soft initialization of the words in the glossary
-    func initGlossary(wordsLang1:[String], wordsLang2: [String]){
-        
-        self.wordsLang1 = wordsLang1
-        self.wordsLang2 = wordsLang2
-        updateGlossary()
-        
-    }
     //MARK: Functions
     func updateStatus(currentStatus: UIImage?){
+
         
         if currentStatus != nil{
             self.currentStatus = currentStatus!
@@ -60,27 +61,31 @@ class Glosebok{
         
     }
     
-    func updateGlossary(){
-        self.glossary = [self.wordsLang1, self.wordsLang2]
+    func updateRating(){
+        let sum = ratingForEachWord.reduce(0, combine: +)
+        overallRating = Double(sum) / Double(ratingForEachWord.count)
+        
+        if overallRating < 1{
+            currentStatus = smileys[0]
+        }else if overallRating < 2{
+            currentStatus = smileys[1]
+        }else if overallRating < 3{
+            currentStatus = smileys[2]
+        }else{
+            currentStatus = smileys[3]
+        }
     }
+    func addNewWord(wordLang1: String, wordLang2: String){
+        glossary[0].append(wordLang1)
+        glossary[1].append(wordLang2)
+    }
+    
     
     func replaceWordInGlossary(replacementWord: String, index: Int, language: Int){
-        
-        if language == 1{
-            wordsLang1[index] = replacementWord
-        }else if language == 2{
-            wordsLang2[index] = replacementWord
-        }else{
-            print("Invalid language")
-        }
-        
-        updateGlossary()
+        glossary[language][index] = replacementWord
+
     }
     
-    func addNewWord(wordLang1: String, wordLang2:String){
-        self.wordsLang1.append(wordLang1)
-        self.wordsLang2.append(wordLang2)
-        updateGlossary()
-    }
+
     
 }

@@ -68,7 +68,7 @@ class AddWordTableViewCell: UITableViewCell, UITextFieldDelegate, AddOneWordToGl
     
     func textFieldDidEndEditing(textField: UITextField) {
         debugPrint("text field did end editing")
-        delegate?.disableDoneButton(false)
+
         
         if textField.text != ""{
             setTextFieldToBoldAppearance(textField)
@@ -86,11 +86,12 @@ class AddWordTableViewCell: UITableViewCell, UITextFieldDelegate, AddOneWordToGl
                 textField.resignFirstResponder()
             }
         }
+        delegate?.updateDoneButton()
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         textBeforeEdit = textField.text!
-        delegate?.disableDoneButton(true)
+        delegate?.updateDoneButton()
         
         setTextFieldToNormalAppearance(textField)
     }

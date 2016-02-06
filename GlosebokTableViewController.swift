@@ -37,9 +37,9 @@ class GlosebokTableViewController: UITableViewController{
         library += [glossary1, glossary2, glossary3]
         
         library[0].addNewWord("Hei", wordLang2: "Hello")
-        library[0].addNewWord("Ord på norsk 2", wordLang2: "Wow, thats a long word")
-        library[0].addNewWord("Langt ord", wordLang2: "Thats not even a word")
-        library[0].addNewWord("Det får værra nok nå eller?!", wordLang2: "yep")
+        library[0].addNewWord("Ord på norsk 2", wordLang2: "Word in Norwegian 2")
+        library[0].addNewWord("Langt ord", wordLang2: "Long word")
+        library[0].addNewWord("Det får værra nok nå eller?!", wordLang2: "Now it should be enough, or?")
         library[1].addNewWord("Hva skjer a?", wordLang2: "Whats up?")
         
     }
@@ -138,13 +138,24 @@ class GlosebokTableViewController: UITableViewController{
 
     
     // MARK: - Navigation
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddItem"{
+            debugPrint("Initializing new Glosebok")            
+        }
+        else if segue.identifier == "StartPractice"{
+            let sceneOnePracticeViewController = segue.destinationViewController as! SceneOnePracticeViewController
+            if let selectedGlossaryCell = sender as? GlosebokTableViewCell{
+                let indexPath = tableView.indexPathForCell(selectedGlossaryCell)!
+                let selectedGlosebok = library[indexPath.row]
+                sceneOnePracticeViewController.glosebok = selectedGlosebok
+                //sceneOnePracticeViewController.counter = 0
+                sceneOnePracticeViewController.initialSegue = true
+            }
+        }
     }
-    */
+
     @IBAction func unwindToGlosebokList(sender: UIStoryboardSegue){
         
         if let sourceViewController = sender.sourceViewController as? AddWordsTableViewController {
@@ -152,7 +163,7 @@ class GlosebokTableViewController: UITableViewController{
                 var glosebok = sourceViewController.glosebok
                 //Add a new glosebok
                 let newIndexPath = NSIndexPath(forRow: library.count, inSection: 0)
-                library.append(glosebok)
+                library.append(glosebok!)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
         

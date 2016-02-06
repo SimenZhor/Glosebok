@@ -19,7 +19,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     
     var lang1Words: [String] = [String]()
     var lang2Words: [String] = [String]()
-    var glosebok: Glosebok = Glosebok(title: " ", lang1: "", lang2: "")
+    var glosebok: Glosebok?
     var lang1: String = ""
     var lang2: String = ""
     
@@ -35,8 +35,8 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
        // self.navigationItem.leftItemsSupplementBackButton = true
 
        self.editBarButton = self.editButtonItem()
-        lang1 = glosebok.lang1
-        lang2 = glosebok.lang2
+        lang1 = glosebok!.lang1
+        lang2 = glosebok!.lang2
         
         
         
@@ -45,10 +45,10 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
     
     func loadSampleGlossary(){
-        glosebok.glossary[0].append("Hei")
-        glosebok.glossary[1].append("Hello")
-        glosebok.glossary[0].append("Vegg")
-        glosebok.glossary[1].append("Wall")
+        glosebok!.glossary[0].append("Hei")
+        glosebok!.glossary[1].append("Hello")
+        glosebok!.glossary[0].append("Vegg")
+        glosebok!.glossary[1].append("Wall")
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +63,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return glosebok.glossary[0].count + 1
+        return glosebok!.glossary[0].count + 1
     }
 
     
@@ -76,17 +76,17 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddWordTableViewCell
 
         cell.delegate = self
-        cell.lang1TextField.placeholder = glosebok.lang1
-        cell.lang2TextField.placeholder = glosebok.lang2
+        cell.lang1TextField.placeholder = glosebok!.lang1
+        cell.lang2TextField.placeholder = glosebok!.lang2
         // Fetches appropriate word-lists for this cell
         //if indexPath.row != 0{
-            if indexPath.row < glosebok.glossary[0].count{
+            if indexPath.row < glosebok!.glossary[0].count{
                 cell.setTextFieldToBoldAppearance(cell.lang1TextField)
-                cell.lang1TextField.text = glosebok.glossary[0][indexPath.row]
+                cell.lang1TextField.text = glosebok!.glossary[0][indexPath.row]
             }
-            if indexPath.row < glosebok.glossary[1].count{
+            if indexPath.row < glosebok!.glossary[1].count{
                 cell.setTextFieldToBoldAppearance(cell.lang2TextField)
-                cell.lang2TextField.text = glosebok.glossary[1][indexPath.row]
+                cell.lang2TextField.text = glosebok!.glossary[1][indexPath.row]
             }
         //}
         return cell
@@ -108,10 +108,10 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         if editingStyle == .Delete && indexPath.row > 0{
             tableView.beginUpdates()
             
-            if indexPath.row < glosebok.glossary[0].count{
+            if indexPath.row < glosebok!.glossary[0].count{
                 //Checking that indexes are valid
-                glosebok.glossary[0].removeAtIndex(indexPath.row)
-                glosebok.glossary[1].removeAtIndex(indexPath.row)
+                glosebok!.glossary[0].removeAtIndex(indexPath.row)
+                glosebok!.glossary[1].removeAtIndex(indexPath.row)
             
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -148,8 +148,8 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         if doneButton === sender{
-            debugPrint("lang1 count: ",glosebok.glossary[0].count)
-            debugPrint("lang2 count: ",glosebok.glossary[1].count)
+            debugPrint("lang1 count: ",glosebok!.glossary[0].count)
+            debugPrint("lang2 count: ",glosebok!.glossary[1].count)
             //glosebok.initGlossary(lang1Words, wordsLang2: lang2Words)
         
             // Pass the selected object to the new view controller.
@@ -175,12 +175,12 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     
     func wordAdded(language: Int, word: String) {
         debugPrint("added word ",word," at index: ",index," of language: ",language)
-        glosebok.glossary[language].append(word)
+        glosebok!.glossary[language].append(word)
     }
 
     func wordEdited(language: Int, index: Int, word: String) {
         debugPrint("edited word ",word," at index: ",index," of language: ",language)
-        glosebok.glossary[language][index] = word
+        glosebok!.glossary[language][index] = word
     }
     
     func expandTableViewWithOneCell(indexPath: NSIndexPath, language: Int, word: String) {
@@ -200,7 +200,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
        
         
         // if word is new
-        if glosebok.glossary[language].count <= index{
+        if glosebok!.glossary[language].count <= index{
             debugPrint("new word found")
             if word == ""{
                 // if word is nil
@@ -219,12 +219,12 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         }
         
         //if word is edited
-        else if glosebok.glossary[language].count > index{
+        else if glosebok!.glossary[language].count > index{
             debugPrint("glosebok is edited")
             if word == ""{
                 // if word is nil
                 debugPrint("word was nil and removed at index ",index)
-                glosebok.glossary[language].removeAtIndex(index!)
+                glosebok!.glossary[language].removeAtIndex(index!)
             }else{
                 debugPrint("word was edited to ",word," at index: ",index)
                 wordEdited(language, index: index!, word: word)
@@ -234,9 +234,9 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
 
     func isFirstWordWithIndex(index: Int) -> Bool{
-        if glosebok.glossary[0].count > glosebok.glossary[1].count{
+        if glosebok!.glossary[0].count > glosebok!.glossary[1].count{
             //language 1 is largest array
-            if glosebok.glossary[0].count > index{
+            if glosebok!.glossary[0].count > index{
                 //word is not first with index
                 return false
             }else{
@@ -245,7 +245,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
             
         }else{
             //language 2 is largest array
-            if glosebok.glossary[1].count > index{
+            if glosebok!.glossary[1].count > index{
                 //word is not first with index
                 return false
             }else{
@@ -255,11 +255,11 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
 
 
-    func disableDoneButton(bol: Bool) {
-        if bol {
-            doneButton.enabled = false
-        }else{
+    func updateDoneButton() {
+        if glosebok!.glossary[0].count == glosebok!.glossary[1].count {
             doneButton.enabled = true
+        }else{
+            doneButton.enabled = false
         }
     }
 

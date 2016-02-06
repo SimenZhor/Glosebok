@@ -24,6 +24,6 @@ protocol AddOneWordToGlossaryCellDelegate: class{
     
     func expandTableViewWithOneCell(indexPath: NSIndexPath, language: Int, word: String)
 
-    func disableDoneButton(bol: Bool)
+    func updateDoneButton()
     
 }
