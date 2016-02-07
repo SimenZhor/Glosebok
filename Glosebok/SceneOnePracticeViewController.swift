@@ -16,6 +16,7 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var avbrytButton: UIBarButtonItem!
     
     
     var glosebok: Glosebok?
@@ -37,19 +38,8 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             wordLabel.text = glosebok?.glossary[0][0]
             initialSegue = false
         }else{
-            unwindToSceneOnePractice()
-            if glosebok!.glossary[0].count == 0{
-                editButton.enabled = false
-                wordLabel.text = "Du klarte det!"
-                translateButton.hidden = true
-                restartButton.hidden = false
-            }
-            if glosebok!.glossary[0].count > 0{
-                let word = glosebok!.glossary[0].randomItem()
-                wordLabel.text = word
-                index = glosebok!.glossary[0].indexOf(word)!
-                
-            }
+            //unwindToSceneOnePractice()
+            
         }
         
     }
@@ -62,13 +52,15 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             debugPrint(glosebok!.glossary[1][index])
             sceneTwoPracticeViewController.glosebok = glosebok
             //sceneTwoPracticeViewController.wordsDone = wordsDone
-        }else if sender === self.navigationItem.backBarButtonItem{
+        }else if sender === avbrytButton{
             debugPrint("back pressed")
+            cleanUpTranslatedWords()
             navigationController?.navigationBarHidden = false
+            //performSegueWithIdentifier("EndPractice", sender: avbrytButton)
         }
     }
     
-    func unwindToSceneOnePractice(){
+    @IBAction func unwindToSceneOnePractice(sender: UIStoryboardSegue){
         //wordsDone[counter] = index
         //counter++
         debugPrint("rating = ", prevRating)
@@ -78,7 +70,19 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         glosebok?.translatedWords[1].append((glosebok?.glossary[1][index])!)
         glosebok?.glossary[0].removeAtIndex(index)
         glosebok?.glossary[1].removeAtIndex(index)
-        
+        if glosebok!.glossary[0].count == 0{
+            editButton.title = "Fullfør"
+            wordLabel.text = "Du klarte det!"
+            //Sett inn smilefjes her
+            translateButton.hidden = true
+            restartButton.hidden = false
+        }
+        if glosebok!.glossary[0].count > 0{
+            let word = glosebok!.glossary[0].randomItem()
+            wordLabel.text = word
+            index = glosebok!.glossary[0].indexOf(word)!
+            
+        }
         
     }
     //MARK: TextField Delegates
@@ -100,6 +104,21 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             translateButton.enabled = false
             wordTextField.text = glosebok?.glossary[0][index]
             wordTextField.becomeFirstResponder()
+        }
+    }
+    
+    func cleanUpTranslatedWords(){
+        if glosebok?.translatedWords[0].count > 0{
+            for var i = 0; i<glosebok?.translatedWords[0].count; i++ {
+                glosebok?.glossary[0].append((glosebok?.translatedWords[0][i])!)
+            }
+            glosebok?.translatedWords[0].removeAll()
+        }
+        if glosebok?.translatedWords[1].count > 0{
+            for var i = 0; i<glosebok?.translatedWords[1].count; i++ {
+                glosebok?.glossary[1].append((glosebok?.translatedWords[1][i])!)
+            }
+            glosebok?.translatedWords[1].removeAll()
         }
     }
     
@@ -128,6 +147,12 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             //wordTextField.resignFirstResponder()
             
         }
+        else if editButton.title == "Fullfør"{
+            performSegueWithIdentifier("EndPractice", sender: avbrytButton)
+        }
+    }
+    @IBAction func avbrytButtonAction(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("EndPractice", sender: sender)
     }
 }
 

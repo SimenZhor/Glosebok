@@ -63,13 +63,13 @@ class Glosebok{
     
     func updateRating(){
         let sum = ratingForEachWord.reduce(0, combine: +)
-        overallRating = Double(sum) / Double(ratingForEachWord.count)
+        overallRating = Double(sum) / Double(translatedWords[0].count+glossary[0].count)
         
-        if overallRating < 1{
+        if overallRating <= 1{
             currentStatus = smileys[0]
-        }else if overallRating < 2{
+        }else if overallRating <= 2{
             currentStatus = smileys[1]
-        }else if overallRating < 3{
+        }else if overallRating <= 3{
             currentStatus = smileys[2]
         }else{
             currentStatus = smileys[3]

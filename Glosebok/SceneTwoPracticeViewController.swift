@@ -18,15 +18,15 @@ class SceneTwoPracticeViewController: UIViewController, RatingControlDelegate {
     var index = 0
     var glosebok: Glosebok?
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         wordLabel.text = glosebok?.glossary[1][index]
         ratingControl.delegate = self
     }
     
     func recieveRating(rating: Int) {
         self.rating = rating
-        performSegueWithIdentifier("RatingDone", sender: ratingControl)
+        performSegueWithIdentifier("RatingDone2", sender: ratingControl)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

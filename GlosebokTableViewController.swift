@@ -87,6 +87,7 @@ class GlosebokTableViewController: UITableViewController{
             keywords.removeAtIndex(keywords.endIndex.predecessor())
             keywords.removeAtIndex(keywords.endIndex.predecessor()) //removes last comma
         }
+        cell.completionImage.image = glosebok.currentStatus
         
         cell.keywordsLabel.text = keywords
         
@@ -149,6 +150,7 @@ class GlosebokTableViewController: UITableViewController{
             if let selectedGlossaryCell = sender as? GlosebokTableViewCell{
                 let indexPath = tableView.indexPathForCell(selectedGlossaryCell)!
                 let selectedGlosebok = library[indexPath.row]
+                selectedGlosebok.ratingForEachWord.removeAll()
                 sceneOnePracticeViewController.glosebok = selectedGlosebok
                 //sceneOnePracticeViewController.counter = 0
                 sceneOnePracticeViewController.initialSegue = true
@@ -165,6 +167,13 @@ class GlosebokTableViewController: UITableViewController{
                 let newIndexPath = NSIndexPath(forRow: library.count, inSection: 0)
                 library.append(glosebok!)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        } else if let sourceViewController = sender.sourceViewController as? SceneOnePracticeViewController{
+            let selectedIndexPath = tableView.indexPathForSelectedRow
+            let glosebok = sourceViewController.glosebok
+            library[selectedIndexPath!.row] = glosebok!
+            debugPrint("rating average: ",glosebok?.overallRating)
+            tableView.reloadRowsAtIndexPaths([selectedIndexPath!], withRowAnimation: .None)
+            
         }
         
     }

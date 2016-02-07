@@ -97,23 +97,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Oversett"/>
                                 <connections>
-                                    <segue destination="se1-Qe-Wmo" kind="presentation" identifier="ShowAnswer" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="iGc-UE-rDj"/>
+                                    <segue destination="se1-Qe-Wmo" kind="presentation" identifier="ShowAnswer" modalTransitionStyle="flipHorizontal" id="ekW-y7-Wfw"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-xg-Aik">
-                                <rect key="frame" x="20" y="437" width="560" height="73"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Start på nytt"/>
-                                <connections>
-                                    <action selector="restartButtonAction:" destination="pum-4q-pMW" eventType="touchUpInside" id="t96-Q4-Utr"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Oversatt ord" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-sl-T8H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ord" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-sl-T8H">
                                 <rect key="frame" x="20" y="124" width="560" height="192"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16S-A7-fc6">
+                                <rect key="frame" x="20" y="124" width="560" height="192"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="5q1-Ny-mZN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puh-yW-KiS">
                                 <rect key="frame" x="0.0" y="20" width="600" height="64"/>
                                 <constraints>
@@ -123,7 +123,7 @@
                                     <navigationItem title="Oversett dette ordet" id="4Ww-qB-Vcr">
                                         <barButtonItem key="leftBarButtonItem" title="Avbryt" id="oc8-rb-4su">
                                             <connections>
-                                                <segue destination="CNE-a2-w89" kind="unwind" unwindAction="unwindToGlosebokList:" id="wME-nD-f4G"/>
+                                                <action selector="avbrytButtonAction:" destination="pum-4q-pMW" id="nJn-BC-BWp"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Jn9-CY-uGF">
@@ -134,14 +134,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16S-A7-fc6">
-                                <rect key="frame" x="20" y="124" width="560" height="192"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="192" id="5q1-Ny-mZN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-xg-Aik">
+                                <rect key="frame" x="20" y="437" width="560" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start på nytt"/>
+                                <connections>
+                                    <action selector="restartButtonAction:" destination="pum-4q-pMW" eventType="touchUpInside" id="t96-Q4-Utr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -190,11 +190,13 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="avbrytButton" destination="oc8-rb-4su" id="nah-B9-1q7"/>
                         <outlet property="editButton" destination="Jn9-CY-uGF" id="mfP-E8-7uZ"/>
                         <outlet property="restartButton" destination="Pb5-xg-Aik" id="ybE-Hw-VLa"/>
                         <outlet property="translateButton" destination="HM4-ew-OCB" id="8Uq-6f-nJg"/>
                         <outlet property="wordLabel" destination="AUK-sl-T8H" id="5Jd-Pq-bXF"/>
                         <outlet property="wordTextField" destination="16S-A7-fc6" id="Zun-q2-lUu"/>
+                        <segue destination="CNE-a2-w89" kind="unwind" identifier="EndPractice" unwindAction="unwindToGlosebokList:" id="2Yd-Tq-AZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPY-6M-FZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +241,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Translated word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-GY-MIL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Oversetter..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IR-GY-MIL">
                                 <rect key="frame" x="20" y="124" width="560" height="192"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,15 +271,18 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="mpm-NI-c8V"/>
                     <connections>
                         <outlet property="ratingControl" destination="3mL-oQ-lw8" id="62S-hb-RNt"/>
                         <outlet property="wordLabel" destination="4IR-GY-MIL" id="wet-fX-tNd"/>
                         <segue destination="pum-4q-pMW" kind="presentation" identifier="RatingDone" modalTransitionStyle="flipHorizontal" id="M2i-Ic-B7D"/>
+                        <segue destination="pKh-qY-GQM" kind="unwind" identifier="RatingDone2" unwindAction="unwindToSceneOnePractice:" id="15i-OW-8QQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjJ-yN-wjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pKh-qY-GQM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="964" y="1014"/>
+            <point key="canvasLocation" x="1060" y="1014"/>
         </scene>
         <!--New Glossary View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -482,11 +487,30 @@
             </objects>
             <point key="canvasLocation" x="964" y="249"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xGW-24-2hP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0H3-YX-qGF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FJo-1d-Ydq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="se1-Qe-Wmo" kind="relationship" relationship="rootViewController" id="Rzp-wo-ATu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOh-4X-rgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="1768"/>
+        </scene>
     </scenes>
     <resources>
         <image name="utterShit" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ekW-y7-Wfw"/>
         <segue reference="M2i-Ic-B7D"/>
     </inferredMetricsTieBreakers>
 </document>
