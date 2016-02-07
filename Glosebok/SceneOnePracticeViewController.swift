@@ -20,6 +20,14 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var fullførButton: UIButton!
     
+    //Edit options
+    @IBOutlet weak var bottomViewOnEdit: UIView!
+    @IBOutlet weak var languageSwitch: UISwitch!
+    @IBOutlet weak var languageSwitchLabel: UILabel!
+    var bottomViewOnEditYConstraint: NSLayoutConstraint?
+    var constraintToPushUpButtons: NSLayoutConstraint?
+
+    
     
     var glosebok: Glosebok?
     //var wordsDone: [Int] = []
@@ -45,6 +53,13 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         }
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.layoutIfNeeded()
+        hideLanguageSwitch(false) //animated = false
+    }
 
     //MARK: Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -53,18 +68,15 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             sceneTwoPracticeViewController.index = index
             debugPrint(glosebok!.glossary[1][index])
             sceneTwoPracticeViewController.glosebok = glosebok
-            //sceneTwoPracticeViewController.wordsDone = wordsDone
         }else if sender === avbrytButton{
             debugPrint("back pressed")
             cleanUpTranslatedWords()
             navigationController?.navigationBarHidden = false
-            //performSegueWithIdentifier("EndPractice", sender: avbrytButton)
         }
     }
     
     @IBAction func unwindToSceneOnePractice(sender: UIStoryboardSegue){
-        //wordsDone[counter] = index
-        //counter++
+        
         debugPrint("rating = ", prevRating)
         glosebok?.ratingForEachWord.append(prevRating)
         glosebok?.updateRating()
@@ -75,6 +87,7 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         if glosebok!.glossary[0].count == 0{
             editButton.title = "Fullfør"
             wordLabel.text = "Du klarte det!"
+            debugPrint("Average rating: ",glosebok?.overallRating)
             ratingImageView.image = glosebok?.currentStatus
             ratingImageView.hidden = false
             fullførButton.hidden = false
@@ -88,6 +101,44 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             
         }
         
+    }
+    
+    func hideLanguageSwitch(animated: Bool){
+        removeBottomViewOnEditYConstraint()
+        let hideConstraint = NSLayoutConstraint(item: self.bottomViewOnEdit, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0)
+        self.bottomViewOnEditYConstraint = hideConstraint
+        self.view.addConstraint(hideConstraint)
+        
+        self.performConstraintLayout(animated)
+        
+    }
+    func showLanguageSwitch(animated: Bool){
+        removeBottomViewOnEditYConstraint()
+        let showConstraint = NSLayoutConstraint(item: self.bottomViewOnEdit, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0)
+        //let pushConstraint = NSLayoutConstraint(item: self.translateButton, attribute: .Bottom, relatedBy: .Height(33), toItem: self.bottomViewOnEdit, attribute: .Top, multiplier: 1, constant: 0)
+        self.bottomViewOnEditYConstraint = showConstraint
+        //self.constraintToPushUpButtons = pushConstraint
+        self.view.addConstraint(showConstraint)
+        //self.view.addConstraint(pushConstraint)
+        
+        self.performConstraintLayout(animated)
+        
+    }
+    
+    func performConstraintLayout(animated: Bool){
+        if animated == true{
+            UIView.animateWithDuration(0.5, animations: {() -> Void in self.view.layoutIfNeeded()})
+            
+        }else{
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func removeBottomViewOnEditYConstraint(){
+        if bottomViewOnEditYConstraint != nil{
+            self.view.removeConstraint(bottomViewOnEditYConstraint!)
+            self.bottomViewOnEditYConstraint = nil
+        }
     }
     //MARK: TextField Delegates
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -104,6 +155,11 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             
             translateButton.enabled = true
             editButton.title = "Edit"
+            hideLanguageSwitch(true)
+            /*UIView.animateWithDuration(0.5, animations: {
+                self.bottomViewOnEdit.center.y += self.bottomViewOnEdit.bounds.height
+                self.languageSwitch.center.y += self.bottomViewOnEdit.bounds.height
+                self.languageSwitchLabel.center.y += self.bottomViewOnEdit.bounds.height})*/
         }else{
             translateButton.enabled = false
             wordTextField.text = glosebok?.glossary[0][index]
@@ -139,19 +195,27 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         editButton.enabled = true
         fullførButton.hidden = true
         ratingImageView.hidden = true
+        editButton.title = "Edit"
     }
     
     @IBAction func editWord(sender: UIBarButtonItem) {
         if editButton.title == "Edit"{
             wordTextField.text = wordLabel.text
-            wordTextField.hidden = false
-            wordTextField.becomeFirstResponder()
             wordLabel.hidden = true
+            wordTextField.hidden = false
+            translateButton.enabled = false
+            view.layoutIfNeeded()
+            
+            showLanguageSwitch(true)
             editButton.title = "Done"
         }else if editButton.title == "Done"{
-            textFieldShouldReturn(wordTextField)
-            //wordTextField.resignFirstResponder()
-            
+            if wordTextField.isFirstResponder(){
+                textFieldShouldReturn(wordTextField)
+                //wordTextField.resignFirstResponder()
+            }else{
+                wordTextField.becomeFirstResponder()
+                textFieldShouldReturn(wordTextField)
+            }
         }
         else if editButton.title == "Fullfør"{
             performSegueWithIdentifier("EndPractice", sender: avbrytButton)

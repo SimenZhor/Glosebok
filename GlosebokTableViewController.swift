@@ -171,7 +171,7 @@ class GlosebokTableViewController: UITableViewController{
             let selectedIndexPath = tableView.indexPathForSelectedRow
             let glosebok = sourceViewController.glosebok
             library[selectedIndexPath!.row] = glosebok!
-            debugPrint("rating average: ",glosebok?.overallRating)
+            
             tableView.reloadRowsAtIndexPaths([selectedIndexPath!], withRowAnimation: .None)
             
         }
