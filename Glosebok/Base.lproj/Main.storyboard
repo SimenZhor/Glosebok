@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -93,11 +94,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ew-OCB">
-                                <rect key="frame" x="20" y="437" width="560" height="73"/>
+                                <rect key="frame" x="20" y="477" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Oversett"/>
                                 <connections>
                                     <segue destination="se1-Qe-Wmo" kind="presentation" identifier="ShowAnswer" modalTransitionStyle="flipHorizontal" id="ekW-y7-Wfw"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-xg-Aik">
+                                <rect key="frame" x="20" y="477" width="560" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start på nytt"/>
+                                <connections>
+                                    <action selector="restartButtonAction:" destination="pum-4q-pMW" eventType="touchUpInside" id="t96-Q4-Utr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ord" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUK-sl-T8H">
@@ -134,22 +143,39 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-xg-Aik">
-                                <rect key="frame" x="20" y="437" width="560" height="73"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjR-oI-sY7">
+                                <rect key="frame" x="20" y="436" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Start på nytt"/>
+                                <state key="normal" title="Fullfør"/>
                                 <connections>
-                                    <action selector="restartButtonAction:" destination="pum-4q-pMW" eventType="touchUpInside" id="t96-Q4-Utr"/>
+                                    <action selector="fullførButtonAction:" destination="pum-4q-pMW" eventType="touchUpInside" id="SMD-E2-b4A"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4K-rQ-cBi">
+                                <rect key="frame" x="254" y="324" width="93" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="71Q-SZ-3WR"/>
+                                    <constraint firstAttribute="width" secondItem="a4K-rQ-cBi" secondAttribute="height" multiplier="31:31" id="7sD-bQ-yAe"/>
+                                    <constraint firstAttribute="width" secondItem="a4K-rQ-cBi" secondAttribute="height" multiplier="1:1" id="hO2-gS-tOf"/>
+                                    <constraint firstAttribute="height" constant="93" id="lV6-Zc-Piz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7sD-bQ-yAe"/>
+                                        <exclude reference="hO2-gS-tOf"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="07j-2y-yHs"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="centerY" secondItem="AUK-sl-T8H" secondAttribute="centerY" id="57y-8u-jup"/>
                             <constraint firstItem="HM4-ew-OCB" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="8G8-8o-hKj"/>
+                            <constraint firstItem="YjR-oI-sY7" firstAttribute="top" secondItem="a4K-rQ-cBi" secondAttribute="bottom" constant="8" id="Dgo-kt-WvM"/>
                             <constraint firstItem="Puh-yW-KiS" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" constant="-20" id="F0N-oX-Yj3"/>
                             <constraint firstItem="HM4-ew-OCB" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" id="GK5-Zg-QhS"/>
+                            <constraint firstItem="Pb5-xg-Aik" firstAttribute="top" secondItem="YjR-oI-sY7" secondAttribute="bottom" constant="8" id="HRp-4D-OTR"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="LDV-Dn-yc6"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="top" secondItem="Puh-yW-KiS" secondAttribute="bottom" constant="40" id="LYV-YU-M3n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Puh-yW-KiS" secondAttribute="trailing" constant="-20" id="N62-KT-zHC"/>
@@ -158,16 +184,22 @@
                             <constraint firstItem="naE-Es-cL7" firstAttribute="top" secondItem="HM4-ew-OCB" secondAttribute="bottom" constant="90" id="Sx7-Ca-ahO"/>
                             <constraint firstItem="Pb5-xg-Aik" firstAttribute="centerY" secondItem="HM4-ew-OCB" secondAttribute="centerY" id="W6U-nt-61j"/>
                             <constraint firstItem="HM4-ew-OCB" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="Z9X-Ty-KpF"/>
+                            <constraint firstItem="YjR-oI-sY7" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" id="ZnA-xQ-b8x"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" id="aIJ-io-kCE"/>
                             <constraint firstItem="Pb5-xg-Aik" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="aNe-Yw-zTD"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="centerY" secondItem="F29-TK-71P" secondAttribute="centerY" id="aie-pD-LkA"/>
+                            <constraint firstItem="a4K-rQ-cBi" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="ayw-N6-ion"/>
+                            <constraint firstItem="a4K-rQ-cBi" firstAttribute="top" secondItem="16S-A7-fc6" secondAttribute="bottom" constant="8" id="dZF-iL-Mfx"/>
+                            <constraint firstItem="YjR-oI-sY7" firstAttribute="trailing" secondItem="F29-TK-71P" secondAttribute="trailingMargin" id="dft-q7-avH"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="trailing" secondItem="F29-TK-71P" secondAttribute="trailingMargin" id="dxD-NF-qpb"/>
                             <constraint firstItem="Pb5-xg-Aik" firstAttribute="centerY" secondItem="F29-TK-71P" secondAttribute="centerY" id="f2x-up-uIb"/>
                             <constraint firstItem="Puh-yW-KiS" firstAttribute="top" secondItem="F29-TK-71P" secondAttribute="topMargin" id="f9P-fZ-Yam"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="iMx-Nt-dII"/>
+                            <constraint firstItem="a4K-rQ-cBi" firstAttribute="top" secondItem="16S-A7-fc6" secondAttribute="bottom" constant="8" id="j8p-uk-Vla"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="top" secondItem="2ME-kP-8KX" secondAttribute="bottom" constant="60" id="jsk-y9-cY2"/>
                             <constraint firstItem="Pb5-xg-Aik" firstAttribute="centerX" secondItem="HM4-ew-OCB" secondAttribute="centerX" id="k9z-WN-2p3"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="centerY" secondItem="F29-TK-71P" secondAttribute="centerY" id="o9i-F8-oVq"/>
+                            <constraint firstItem="naE-Es-cL7" firstAttribute="top" secondItem="Pb5-xg-Aik" secondAttribute="bottom" constant="90" id="v7i-tK-LFh"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="vpB-dc-saq"/>
                             <constraint firstItem="16S-A7-fc6" firstAttribute="centerX" secondItem="F29-TK-71P" secondAttribute="centerX" id="whS-gf-Xqx"/>
                             <constraint firstItem="AUK-sl-T8H" firstAttribute="leading" secondItem="F29-TK-71P" secondAttribute="leadingMargin" id="xXu-1v-jQb"/>
@@ -181,9 +213,12 @@
                                 <exclude reference="aie-pD-LkA"/>
                                 <exclude reference="iMx-Nt-dII"/>
                                 <exclude reference="jsk-y9-cY2"/>
+                                <exclude reference="dZF-iL-Mfx"/>
+                                <exclude reference="Dgo-kt-WvM"/>
                                 <exclude reference="8G8-8o-hKj"/>
                                 <exclude reference="QQE-Tm-9Vd"/>
                                 <exclude reference="Z9X-Ty-KpF"/>
+                                <exclude reference="W6U-nt-61j"/>
                                 <exclude reference="aNe-Yw-zTD"/>
                                 <exclude reference="f2x-up-uIb"/>
                             </mask>
@@ -192,6 +227,8 @@
                     <connections>
                         <outlet property="avbrytButton" destination="oc8-rb-4su" id="nah-B9-1q7"/>
                         <outlet property="editButton" destination="Jn9-CY-uGF" id="mfP-E8-7uZ"/>
+                        <outlet property="fullførButton" destination="YjR-oI-sY7" id="q8K-aT-GKB"/>
+                        <outlet property="ratingImageView" destination="a4K-rQ-cBi" id="hFR-k6-RqV"/>
                         <outlet property="restartButton" destination="Pb5-xg-Aik" id="ybE-Hw-VLa"/>
                         <outlet property="translateButton" destination="HM4-ew-OCB" id="8Uq-6f-nJg"/>
                         <outlet property="wordLabel" destination="AUK-sl-T8H" id="5Jd-Pq-bXF"/>

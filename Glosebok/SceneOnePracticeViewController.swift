@@ -17,6 +17,8 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var avbrytButton: UIBarButtonItem!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var fullførButton: UIButton!
     
     
     var glosebok: Glosebok?
@@ -73,7 +75,9 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         if glosebok!.glossary[0].count == 0{
             editButton.title = "Fullfør"
             wordLabel.text = "Du klarte det!"
-            //Sett inn smilefjes her
+            ratingImageView.image = glosebok?.currentStatus
+            ratingImageView.hidden = false
+            fullførButton.hidden = false
             translateButton.hidden = true
             restartButton.hidden = false
         }
@@ -133,6 +137,8 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         translateButton.hidden = false
         restartButton.hidden = true
         editButton.enabled = true
+        fullførButton.hidden = true
+        ratingImageView.hidden = true
     }
     
     @IBAction func editWord(sender: UIBarButtonItem) {
@@ -153,6 +159,9 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
     }
     @IBAction func avbrytButtonAction(sender: UIBarButtonItem) {
         performSegueWithIdentifier("EndPractice", sender: sender)
+    }
+    @IBAction func fullførButtonAction(sender: UIButton) {
+        avbrytButtonAction(avbrytButton)
     }
 }
 
