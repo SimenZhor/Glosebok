@@ -17,9 +17,12 @@ class GlosebokTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Loading saved library from NSUserDefaults
+        load()
+        
         
         //loading sample data
-        loadSamples()
+        //loadSamples()
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
@@ -118,7 +121,8 @@ class GlosebokTableViewController: UITableViewController{
             
         } /*else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }  */  
+        }  */
+        self.save()
     }
 
 
@@ -136,12 +140,26 @@ class GlosebokTableViewController: UITableViewController{
         return true
     }*/
     
-
+    //MARK: - Functions
+    
+    func save(){
+        let savedData = NSKeyedArchiver.archivedDataWithRootObject(library)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(savedData, forKey: "library")
+    }
+    func load(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let savedLibrary = defaults.objectForKey("library") as? NSData{
+            self.library = NSKeyedUnarchiver.unarchiveObjectWithData(savedLibrary) as! [Glosebok]
+        }
+    }
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "AddItem"{
             debugPrint("Initializing new Glosebok")            
         }
@@ -156,6 +174,7 @@ class GlosebokTableViewController: UITableViewController{
                 sceneOnePracticeViewController.initialSegue = true
             }
         }
+        self.save()
     }
 
     @IBAction func unwindToGlosebokList(sender: UIStoryboardSegue){
@@ -175,6 +194,7 @@ class GlosebokTableViewController: UITableViewController{
             tableView.reloadRowsAtIndexPaths([selectedIndexPath!], withRowAnimation: .None)
             
         }
+        self.save()
         
     }
 

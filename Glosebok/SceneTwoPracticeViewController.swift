@@ -13,7 +13,7 @@ class SceneTwoPracticeViewController: UIViewController, RatingControlDelegate {
     //MARK: Properties
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
-    //var wordsDone: [Int] = []
+    var langSwitched = false
     var rating = 0
     var index = 0
     var glosebok: Glosebok?
@@ -26,7 +26,8 @@ class SceneTwoPracticeViewController: UIViewController, RatingControlDelegate {
     
     func recieveRating(rating: Int) {
         self.rating = rating
-        performSegueWithIdentifier("RatingDone2", sender: ratingControl)
+        //unwind to scene one (via exit)
+        performSegueWithIdentifier("RatingDone", sender: ratingControl)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -34,8 +35,7 @@ class SceneTwoPracticeViewController: UIViewController, RatingControlDelegate {
             let sceneOne = segue.destinationViewController as! SceneOnePracticeViewController
             sceneOne.prevRating = rating
             sceneOne.glosebok = glosebok
-            //sceneOne.wordsDone = wordsDone
-            //glosebok?.glossary[1].removeAtIndex(index)
+            sceneOne.langSwitched = langSwitched
         }
     }
 

@@ -138,7 +138,7 @@ class Glosebok: NSObject, NSCoding{
         aCoder.encodeObject(currentStatus, forKey: PropertyKey.currentStatusKey)
         aCoder.encodeDouble(overallRating, forKey: PropertyKey.avgRatingKey)
         
-        aCoder.encodeObject (glossary, forKey: PropertyKey.glossaryKey)
+        aCoder.encodeObject(glossary, forKey: PropertyKey.glossaryKey)
         aCoder.encodeObject(ratingForEachWord, forKey: PropertyKey.ratingEachWordKey)
         
     }

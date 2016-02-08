@@ -173,14 +173,17 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make words in language 2 appear first" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-RS-1dn">
                                         <rect key="frame" x="8" y="30" width="527" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mvz-YX-3Oi">
                                         <rect key="frame" x="543" y="25" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="languageSwitched:" destination="pum-4q-pMW" eventType="valueChanged" id="qFx-Oi-o8T"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="9bp-RS-1dn" firstAttribute="leading" secondItem="BYJ-sO-wUo" secondAttribute="leading" constant="8" id="09d-JQ-AAS"/>
                                     <constraint firstItem="9bp-RS-1dn" firstAttribute="top" secondItem="BYJ-sO-wUo" secondAttribute="top" constant="31" id="8dw-KD-qa6"/>
@@ -381,8 +384,7 @@
                     <connections>
                         <outlet property="ratingControl" destination="3mL-oQ-lw8" id="62S-hb-RNt"/>
                         <outlet property="wordLabel" destination="4IR-GY-MIL" id="wet-fX-tNd"/>
-                        <segue destination="pum-4q-pMW" kind="presentation" identifier="RatingDone" modalTransitionStyle="flipHorizontal" id="M2i-Ic-B7D"/>
-                        <segue destination="pKh-qY-GQM" kind="unwind" identifier="RatingDone2" unwindAction="unwindToSceneOnePractice:" id="15i-OW-8QQ"/>
+                        <segue destination="pKh-qY-GQM" kind="unwind" identifier="RatingDone" unwindAction="unwindToSceneOnePractice:" id="15i-OW-8QQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjJ-yN-wjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,6 +619,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ekW-y7-Wfw"/>
-        <segue reference="M2i-Ic-B7D"/>
     </inferredMetricsTieBreakers>
 </document>
