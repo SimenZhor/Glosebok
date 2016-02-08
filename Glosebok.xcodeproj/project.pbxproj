@@ -134,13 +134,14 @@
 			isa = PBXGroup;
 			children = (
 				F168475D1C574B6B006FD3BF /* AppDelegate.swift */,
-				F1E7A7841C5E41B400665FF6 /* Glosebok.swift */,
 				F16847611C574B6B006FD3BF /* Main.storyboard */,
 				F17327671C5F4A6200099F60 /* 1 Mine glosebøker scene */,
 				F17327681C5F4A8400099F60 /* 2 Ny Glosebok scene */,
 				F17327661C5F4A5300099F60 /* 3 Add Word scene */,
 				F16847641C574B6B006FD3BF /* Assets.xcassets */,
 				F1C6A1CA1C65492B006D8D16 /* 4 Practice Scenes */,
+				F1A081CC1C67BC36001FCEB1 /* Protocols  */,
+				F1A081CD1C67BC5D001FCEB1 /* Custom classes */,
 				F16847661C574B6B006FD3BF /* LaunchScreen.storyboard */,
 				F16847691C574B6B006FD3BF /* Info.plist */,
 			);
@@ -170,7 +171,6 @@
 			children = (
 				F17327621C5F497C00099F60 /* AddWordsTableViewController.swift */,
 				F17327641C5F4A1D00099F60 /* AddWordTableViewCell.swift */,
-				F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */,
 			);
 			name = "3 Add Word scene";
 			sourceTree = "<group>";
@@ -192,13 +192,29 @@
 			name = "2 Ny Glosebok scene";
 			sourceTree = "<group>";
 		};
+		F1A081CC1C67BC36001FCEB1 /* Protocols  */ = {
+			isa = PBXGroup;
+			children = (
+				F187BC561C639D86000E0B2A /* AddOneWordToGlossaryCell.swift */,
+				F1C6A1CB1C65508C006D8D16 /* RatingControlDelegate.swift */,
+			);
+			name = "Protocols ";
+			sourceTree = "<group>";
+		};
+		F1A081CD1C67BC5D001FCEB1 /* Custom classes */ = {
+			isa = PBXGroup;
+			children = (
+				F1E7A7841C5E41B400665FF6 /* Glosebok.swift */,
+				F1C6A1C81C654779006D8D16 /* RatingControl.swift */,
+			);
+			name = "Custom classes";
+			sourceTree = "<group>";
+		};
 		F1C6A1CA1C65492B006D8D16 /* 4 Practice Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				F1C6A1CD1C655218006D8D16 /* SceneOnePracticeViewController.swift */,
 				F1C6A1CF1C65522F006D8D16 /* SceneTwoPracticeViewController.swift */,
-				F1C6A1C81C654779006D8D16 /* RatingControl.swift */,
-				F1C6A1CB1C65508C006D8D16 /* RatingControlDelegate.swift */,
 			);
 			name = "4 Practice Scenes";
 			sourceTree = "<group>";
