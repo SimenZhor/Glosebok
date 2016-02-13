@@ -13,42 +13,17 @@ class GlosebokTableViewController: UITableViewController{
     
     //MARK Properties
     var library = [Glosebok]()
-    public static var bookCounter: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Loading saved library from NSUserDefaults
         load()
         
-        
-        //loading sample data
-        //loadSamples()
-        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-    }
-    
-    func loadSamples(){
-        
-        let glossary1 = Glosebok(title: "Bok1", lang1: "Norwegian", lang2: "English")
-        let glossary2 = Glosebok(title: "Bok2", lang1: "English", lang2: "Russian")
-        let glossary3 = Glosebok(title: "bok3", lang1: "English", lang2: "Norwegian")
-        
-        library += [glossary1, glossary2, glossary3]
-        
-        library[0].addNewWord("Hei", wordLang2: "Hello")
-        library[0].addNewWord("Ord på norsk 2", wordLang2: "Word in Norwegian 2")
-        library[0].addNewWord("Langt ord", wordLang2: "Long word")
-        library[0].addNewWord("Det får værra nok nå eller?!", wordLang2: "Now it should be enough, or?")
-        library[1].addNewWord("Hva skjer a?", wordLang2: "Whats up?")
-        
-    }
-    
-    func getLibrary() -> [Glosebok]{
-        return library
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,24 +96,55 @@ class GlosebokTableViewController: UITableViewController{
             
         } /*else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }  */
+        }*/
         self.save()
     }
 
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
-    }*/
+        let movedGlossary = library[fromIndexPath.row]
+        
+        library.removeAtIndex(fromIndexPath.row)
+        library.insert(movedGlossary, atIndex: toIndexPath.row)
+        //if the glossary is moved down the list we don't want to change the indexing before moving it. EDIT: this is apparently already handled before sending indexpaths to this function. Removed this if-test
+      
+    }
     
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }*/
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteClosure = { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            self.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
+            
+        }
+        
+        let moreClosure = { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            self.performSegueWithIdentifier("AddWordsToItem", sender: self.tableView.cellForRowAtIndexPath(indexPath))
+            print("More closure called")
+        }
+        
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Slett", handler: deleteClosure)
+        let moreAction = UITableViewRowAction(style: .Normal, title: "Legg til ord", handler: moreClosure)
+        
+        moreAction.backgroundColor = UIColor.lightGrayColor()
+        
+        return [deleteAction, moreAction]
+    }
+
+    
+    
+
+    
     
     //MARK: - Functions
     
@@ -153,6 +159,10 @@ class GlosebokTableViewController: UITableViewController{
         if let savedLibrary = defaults.objectForKey("library") as? NSData{
             self.library = NSKeyedUnarchiver.unarchiveObjectWithData(savedLibrary) as! [Glosebok]
         }
+    }
+    
+    func addWordsAction(){
+        debugPrint("Add words tapped")
     }
     
     // MARK: - Navigation
@@ -173,19 +183,38 @@ class GlosebokTableViewController: UITableViewController{
                 //sceneOnePracticeViewController.counter = 0
                 sceneOnePracticeViewController.initialSegue = true
             }
+        }else if segue.identifier == "AddWordsToItem"{
+            let destVC = segue.destinationViewController as! AddWordsTableViewController
+            if let selectedGlossaryCell = sender as? GlosebokTableViewCell{
+                let indexPath = tableView.indexPathForCell(selectedGlossaryCell)!
+                let selectedGlosebok = library[indexPath.row]
+                destVC.glosebok = selectedGlosebok
+                destVC.newGlossary = false
+            }
+            
         }
         self.save()
     }
 
+
     @IBAction func unwindToGlosebokList(sender: UIStoryboardSegue){
         
         if let sourceViewController = sender.sourceViewController as? AddWordsTableViewController {
-                //glosebok = sourceViewController.glosebok
-                var glosebok = sourceViewController.glosebok
-                //Add a new glosebok
+            //glosebok = sourceViewController.glosebok
+            let glosebok = sourceViewController.glosebok
+            //Add a new glosebok
+            if !sourceViewController.newGlossary{
+                let row = library.indexOf(glosebok!)
+                let selectedIndexPath = NSIndexPath(forRow: row!, inSection: 0)
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                sourceViewController.newGlossary = true
+            }else{
+                
                 let newIndexPath = NSIndexPath(forRow: library.count, inSection: 0)
-                library.append(glosebok!)
+                library.insert(glosebok!, atIndex: 0)
+                //library.append(glosebok!)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            }
         } else if let sourceViewController = sender.sourceViewController as? SceneOnePracticeViewController{
             let selectedIndexPath = tableView.indexPathForSelectedRow
             let glosebok = sourceViewController.glosebok
@@ -194,6 +223,7 @@ class GlosebokTableViewController: UITableViewController{
             tableView.reloadRowsAtIndexPaths([selectedIndexPath!], withRowAnimation: .None)
             
         }
+        tableView.reloadData()
         self.save()
         
     }

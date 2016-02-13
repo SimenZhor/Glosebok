@@ -41,14 +41,15 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         wordTextField.delegate = self
         
         
-        if initialSegue{
-            self.navigationController?.navigationBarHidden = true
-            //wordsDone = [Int](count: glosebok!.glossary[0].count, repeatedValue: 0)
-            wordLabel.text = glosebok?.glossary[0][0]
-            initialSegue = false
+        if glosebok?.glossary[0].count > 0{
+            if initialSegue{
+                self.navigationController?.navigationBarHidden = true
+                //wordsDone = [Int](count: glosebok!.glossary[0].count, repeatedValue: 0)
+                wordLabel.text = glosebok?.glossary[0][0]
+                initialSegue = false
+            }
         }else{
-            //unwindToSceneOnePractice()
-            
+            performSegueWithIdentifier("EndPractice", sender: editButton)
         }
         
     }
@@ -75,6 +76,8 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
             if langSwitched{
                 languageSwitched(languageSwitch)
             }
+        } else if sender === editButton{
+            debugPrint("ERROR! Empty array!")
         }
     }
     
@@ -82,7 +85,7 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         
         //handle ratings
         debugPrint("rating = ", prevRating)
-        if glosebok?.ratingForEachWord.count < glosebok?.glossary[0].count{
+        if (glosebok?.ratingForEachWord.count)! < ((glosebok?.glossary[0].count)!+(glosebok?.translatedWords[0].count)!){
             glosebok?.ratingForEachWord.append(prevRating)
         }else{
             glosebok?.ratingForEachWord[index] = prevRating
@@ -275,6 +278,8 @@ class SceneOnePracticeViewController: UIViewController, UITextFieldDelegate{
         //update view
         wordLabel.text = glosebok?.glossary[0][index]
         wordTextField.text = glosebok?.glossary[0][index]
+        wordTextField.isFirstResponder()
+        wordTextField.resignFirstResponder()
     }
 
     

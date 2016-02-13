@@ -11,45 +11,53 @@ import UIKit
 class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCellDelegate {
     
     //MARK: Properties
-    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    //@IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    //@IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-
+    @IBOutlet weak var backButton: UIBarButtonItem?
     
     
-    var lang1Words: [String] = [String]()
-    var lang2Words: [String] = [String]()
     var glosebok: Glosebok?
     var lang1: String = ""
     var lang2: String = ""
     
+    var newGlossary = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // The following lines are examples of syntax for barbuttons
        // self.navigationItem.backBarButtonItem = nil
-       // self.navigationItem.leftItemsSupplementBackButton = true
-
-       self.editBarButton = self.editButtonItem()
+       
+        self.backButton = self.navigationItem.backBarButtonItem
+        self.navigationItem.leftItemsSupplementBackButton = true
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //self.navigationItem.backBarButtonItem!.action = "unwindToNewGlosebokController:"
+        
+        
+        //self.editBarButton = self.editButtonItem()
         lang1 = glosebok!.lang1
         lang2 = glosebok!.lang2
         
+        tableView.reloadData()
+        updateDoneButton()
         
         
         //loadSampleGlossary()
         
     }
     
-    func loadSampleGlossary(){
-        glosebok!.glossary[0].append("Hei")
-        glosebok!.glossary[1].append("Hello")
-        glosebok!.glossary[0].append("Vegg")
-        glosebok!.glossary[1].append("Wall")
-    }
+    /*
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        if parent != self.parentViewController{
+            debugPrint("testingkjlh")
+            let test = self.navigationController?.parentViewController as! NewGlossaryViewController
+            test.unwindToNewGlosebokController(UIStoryboardSegue(identifier: "UnwindToCreateGlossary", source: self, destination: test))
+        }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,7 +113,7 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete && indexPath.row > 0{
+        if editingStyle == .Delete && glosebok?.glossary[0].count > 0{
             tableView.beginUpdates()
             
             if indexPath.row < glosebok!.glossary[0].count{
@@ -126,21 +134,31 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
     }
     
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        if fromIndexPath != toIndexPath{
+            let movedWord = [glosebok?.glossary[0][fromIndexPath.row],glosebok?.glossary[1][fromIndexPath.row]]
+            glosebok?.glossary[0].removeAtIndex(fromIndexPath.row)
+            glosebok?.glossary[1].removeAtIndex(fromIndexPath.row)
+            glosebok?.glossary[0].insert(movedWord[0]!, atIndex: toIndexPath.row)
+            glosebok?.glossary[1].insert(movedWord[1]!, atIndex: toIndexPath.row)
+        }
     }
-    */
 
-    /*
+
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
 
+    //MARK: Actions
+    
+    @IBAction func backButtonAction(){
+        performSegueWithIdentifier("BackToCreateGlossary", sender: backButton)
+    }
     
     // MARK: - Navigation
 
@@ -150,26 +168,15 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         if doneButton === sender{
             debugPrint("lang1 count: ",glosebok!.glossary[0].count)
             debugPrint("lang2 count: ",glosebok!.glossary[1].count)
-            //glosebok.initGlossary(lang1Words, wordsLang2: lang2Words)
         
             // Pass the selected object to the new view controller.
-    
+        }
+        debugPrint("Destination ",segue.destinationViewController)
+        if let destVC = segue.destinationViewController as? NewGlossaryViewController{
+            debugPrint("OH, my god")
         }
     }
     
-       
-    
-    /*
-    @IBAction func unwindToAddWords(sender: UIStoryboardSegue){
-        
-        if let sourceViewController = sender.sourceViewController as? NewGlossaryViewController, glosebok = sourceViewController.glosebok{
-            
-            //Makes use of the variables sent from the previous viewController
-
-            
-        }
-        
-    }*/
     
     //MARK: Delegates from TableViewCell
     
@@ -263,6 +270,12 @@ class AddWordsTableViewController: UITableViewController, AddOneWordToGlossaryCe
         }
     }
 
+    //MARK: Actions
+    
+    @IBAction func doneButtonAction(){
+        performSegueWithIdentifier("UnwindToMain", sender: doneButton)
+        
+    }
 
 
 

@@ -22,8 +22,18 @@ class Glosebok: NSObject, NSCoding{
     var overallRating: Double = 0.0
     var ratingForEachWord: [Int] = [Int]()
     var smileys = [UIImage]()
+
     
+   
     //MARK: Types
+   
+    struct counter {
+        static var bookCounter: Int = NSUserDefaults.standardUserDefaults().integerForKey(PropertyKey.bookCounter) {
+            didSet {
+                NSUserDefaults.standardUserDefaults().setInteger(bookCounter, forKey: PropertyKey.bookCounter)
+            }
+        }
+    }
     
     struct PropertyKey {
         static let titleKey = "title"
@@ -34,6 +44,7 @@ class Glosebok: NSObject, NSCoding{
         static let avgRatingKey = "avgRating"
         static let ratingEachWordKey = "ratingForEachWord"
         static let smileysKey = "smileys"
+        static let bookCounter = "bookCounter"
         
     }
     
@@ -56,9 +67,9 @@ class Glosebok: NSObject, NSCoding{
         
         
         if title == ""{
-         self.title = ("Min Glosebok " + String(GlosebokTableViewController.bookCounter))
+         self.title = ("Min Glosebok " + String(counter.bookCounter))
             debugPrint("Adding one")
-            GlosebokTableViewController.bookCounter+=1
+            counter.bookCounter++
         }
         
     }
@@ -95,8 +106,11 @@ class Glosebok: NSObject, NSCoding{
     }
     
     func updateRating(){
+        debugPrint("rating for each word ",ratingForEachWord)
         let sum = ratingForEachWord.reduce(0, combine: +)
+        debugPrint("sum of ratings ",sum)
         overallRating = Double(sum) / Double(translatedWords[0].count+glossary[0].count)
+        debugPrint("sum (",sum,")/total words(",translatedWords[0].count+glossary[0].count,") =  ",overallRating)
         
         if overallRating <= 1{
             currentStatus = smileys[0]
@@ -108,6 +122,7 @@ class Glosebok: NSObject, NSCoding{
             currentStatus = smileys[3]
         }
     }
+    
     func addNewWord(wordLang1: String, wordLang2: String){
         glossary[0].append(wordLang1)
         glossary[1].append(wordLang2)

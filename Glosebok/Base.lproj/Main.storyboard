@@ -5,14 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Mine Glosebøker-->
         <scene sceneID="MZi-xL-JI9">
             <objects>
                 <tableViewController id="f4d-Nz-XEf" customClass="GlosebokTableViewController" customModule="Glosebok" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="4yS-t8-vOF">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="4yS-t8-vOF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,6 +75,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="FSg-Cy-Wmg" kind="show" identifier="AddWordsToItem" id="pV4-B8-5aL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTI-rH-4Yh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -413,7 +415,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="104" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Min Glosebok" textAlignment="natural" minimumFontSize="10" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oed-qF-5t3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="104" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Min Glosebok" textAlignment="natural" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oed-qF-5t3">
                                         <rect key="frame" x="0.0" y="49" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -529,29 +531,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Legg til gloser" id="cti-yw-z2Q">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="cancel" id="7Fc-AE-67m">
-                                <connections>
-                                    <action selector="cancel:" destination="FSg-Cy-Wmg" id="7Gc-AU-Uvf"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="64W-Ny-d11"/>
-                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="J5P-wN-QQp">
                             <connections>
-                                <segue destination="hmW-uh-cQy" kind="unwind" unwindAction="unwindToGlosebokList:" id="VTT-uT-1WG"/>
+                                <action selector="doneButtonAction" destination="FSg-Cy-Wmg" id="1IO-Lq-JW9"/>
                             </connections>
                         </barButtonItem>
                         <connections>
-                            <outlet property="backBarButtonItem" destination="7Fc-AE-67m" id="oNI-jf-xxO"/>
-                            <outlet property="leftBarButtonItem" destination="64W-Ny-d11" id="IcB-UA-FnZ"/>
                             <outlet property="rightBarButtonItem" destination="J5P-wN-QQp" id="JXb-o4-mjg"/>
                         </connections>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelBarButton" destination="7Fc-AE-67m" id="3yW-Tz-Xu5"/>
                         <outlet property="doneButton" destination="J5P-wN-QQp" id="sLr-00-aYO"/>
-                        <outlet property="editBarButton" destination="64W-Ny-d11" id="vCb-yn-wih"/>
+                        <segue destination="hmW-uh-cQy" kind="unwind" identifier="BackToCreateGlossary" unwindAction="unwindToNewGlosebokController:" id="8nu-Gw-zsz"/>
+                        <segue destination="hmW-uh-cQy" kind="unwind" identifier="UnwindToMain" unwindAction="unwindToGlosebokList:" id="TT7-nk-F2z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERR-fo-KSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,6 +610,7 @@
         <image name="utterShit" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pV4-B8-5aL"/>
         <segue reference="ekW-y7-Wfw"/>
     </inferredMetricsTieBreakers>
 </document>

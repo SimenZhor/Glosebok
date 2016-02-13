@@ -22,6 +22,7 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
     var languageList: [String] = [String]()
     var pickerData: [[String]] = [[String]]()
     var glosebok: Glosebok?
+    var newGlossary = true
     
     
     override func viewDidLoad() {
@@ -48,16 +49,48 @@ class NewGlossaryViewController: UIViewController, UITextFieldDelegate,UIPickerV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if nextButton === sender {
             let DestViewController: AddWordsTableViewController = segue.destinationViewController as! AddWordsTableViewController
+            titleTextField.resignFirstResponder()
             
-            let title = titleTextField.text ?? ""
-            let lang1 = lang1Label.text
-            let lang2 = lang2Label.text
-            
-            glosebok = Glosebok(title: title, lang1: lang1!, lang2: lang2!)
+            if glosebok == nil{
+                let title = titleTextField.text ?? ""
+                let lang1 = lang1Label.text
+                let lang2 = lang2Label.text
+                DestViewController.newGlossary = true
+                
+                glosebok = Glosebok(title: title, lang1: lang1!, lang2: lang2!)
+            }else{
+                glosebok?.title = titleTextField.text ?? ""
+                glosebok?.lang1 = lang1Label.text!
+                glosebok?.lang2 = lang2Label.text!
+            }
             DestViewController.glosebok = glosebok!
+            
+            navigationItem.title = nil
         }
     }
     
+    func test(){
+        debugPrint("PRIRIIIINT")
+    }
+    
+    @IBAction func unwindToNewGlosebokController(sender: UIStoryboardSegue){
+        if let source = sender.sourceViewController as? AddWordsTableViewController{
+            glosebok = source.glosebok
+            titleLabel.text = glosebok!.title
+            titleTextField.text = glosebok!.title
+            lang1Label.text = glosebok!.lang1
+            lang2Label.text = glosebok!.lang2
+            newGlossary = false
+            navigationItem.title = "Ny Glosebok"
+            if (languageList.indexOf(glosebok!.lang1) != nil){
+                languagePicker.selectRow(languageList.indexOf(glosebok!.lang1)!, inComponent: 0, animated: false)
+            }
+            if (languageList.indexOf(glosebok!.lang2) != nil){
+                languagePicker.selectRow(languageList.indexOf(glosebok!.lang2)!, inComponent: 1, animated: false)
+            }
+        }
+    
+    }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
